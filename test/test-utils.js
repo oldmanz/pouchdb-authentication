@@ -2,7 +2,7 @@ var PouchDB = require('./test-pouchdb');
 
 var getConfig = function () {
   return typeof window !== 'undefined' ? window.__karma__.config : global.__testConfig__;
-}
+};
 
 module.exports.getConfig = getConfig;
 

@@ -21,7 +21,7 @@ function updateUser(db, user, opts) {
 
   if (opts.metadata) {
     for (var key in opts.metadata) {
-      if (opts.metadata.hasOwnProperty(key) && reservedWords.indexOf(key) !== -1) {
+      if (opts.metadata.hasOwn(key) && reservedWords.indexOf(key) !== -1) {
         return Promise.reject(new AuthError('cannot use reserved word in metadata: "' + key + '"'));
       }
     }
@@ -79,7 +79,7 @@ var getUser = toCallback(function (username, opts) {
   var ajaxOpts = assign({
     method: 'GET'
   }, opts.ajax || {});
-  return fetchJSON(db.fetch, path, ajaxOpts).then(x => { console.log(x); return x});
+  return fetchJSON(db.fetch, path, ajaxOpts).then(x => { console.log(x); return x;});
 });
 
 var putUser = toCallback(function (username, opts) {
