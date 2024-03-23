@@ -1,6 +1,8 @@
 name: Node.js CI
 on:
   pull_request:
+  branches:
+      - master
 
 jobs:
   build:
@@ -24,12 +26,10 @@ jobs:
         shell: bash
         run: npm run build
 
-      - name: Zip artifact for deployment
-        run: zip build.zip ./dist/* -r
-
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: build.zip
+          name: dist
+          path: dist
           retention-days: 5 
+
