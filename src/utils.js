@@ -20,7 +20,7 @@ function wrapError(err) {
 // Similar to fetchJSON in pouchdb-adapter-http, but both functions are private.
 // Consider extracting them to a common library.
 function fetchJSON(dbFetch, path, options) {
-  options = options || {}
+  options = options || {};
 
   if (options.body) {
     options.body = JSON.stringify(options.body);
